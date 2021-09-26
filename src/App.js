@@ -1,5 +1,7 @@
+import axios from 'axios';
+
 function App() {
-  return <h1>안녕 세상아!</h1>;
+  console.log
 }
 
 export default App;
