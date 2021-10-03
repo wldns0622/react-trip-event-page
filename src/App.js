@@ -1,10 +1,12 @@
+// modules
 import axios from 'axios';
-const MOCK_SERVER = 'https://d0f6acf8-864b-4048-909a-2b302f66e04a.mock.pstmn.io';
+// components
+import Home from './pages/Home';
+// chore
+import './assets/styles/app.scss';
 
 function App() {
-  let result = axios.get(`${MOCK_SERVER}/locations`);
-  console.log(result);
-  return <h1>Hello World</h1>;
+  return <Home />;
 }
 
 export default App;

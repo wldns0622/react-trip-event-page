@@ -1,0 +1,29 @@
+$mainFont: 'Roboto', sans-serif;
+
+.title-container {
+  display: flex;
+  flex-direction: column-reverse;
+  color: #ea6327;
+
+  h1,
+  p {
+    font-family: $mainFont;
+    font-weight: bold;
+  }
+
+  h1 {
+    font-size: 79px;
+    margin-top: 12px;
+  }
+
+  p {
+    font-size: 12px;
+    text-align: right;
+    margin-right: 26px;
+  }
+
+  img {
+    margin-left: 26px;
+    margin-top: 48px;
+  }
+}
