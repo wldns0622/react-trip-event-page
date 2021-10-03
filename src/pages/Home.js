@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import dotenv from 'dotenv';
+import axios from 'axios';
+import fakeData from '../fakeData';
+
+import Post from '../components/Post';
 
 import '../assets/styles/home.scss';
 
 import JEJU_LOGO from '../assets/images/Jeju.png';
 import STONE_IMG from '../assets/images/돌하르방.png';
 import JEJU_JIDO from '../assets/images/제주지도.png';
+dotenv.config();
 
 const Header = styled.header`
   width: 416px;
@@ -27,6 +33,16 @@ const Container = styled.div`
 `;
 
 const Home = () => {
+  const [post, setPost] = useState([]);
+
+  useEffect(() => {
+    setPost([...fakeData.locations]);
+    // axios.get(`${process.env.REACT_APP_MOCK_SERVER}/trips`).then((res) => {
+    //   console.log(res);
+    //   setPost([...res.data]);
+    // });
+  }, []);
+
   return (
     <>
       <Header>
@@ -48,19 +64,9 @@ const Home = () => {
             <img src={JEJU_JIDO} alt="제주도 지도" />
           </p>
           <ul>
-            <li>
-              <div></div>
-              <div>
-                <h2>
-                  <span>01.</span> 제주 북동쪽
-                </h2>
-                <p>
-                  다양하게 볼 것이 많은 지역이다. 제주의 산과 바다를 다양하게 만나볼 수 있고
-                  두문포항을 통해 우도를 갔다오기에 매력적이다.
-                </p>
-                <p>추천명소: 비자림, 산궁부리, 다람쉬오룸</p>
-              </div>
-            </li>
+            {post?.map((post) => {
+              return <Post key={post.id + post.title} post={post} />;
+            })}
           </ul>
         </section>
         <section>
